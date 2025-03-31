@@ -1,0 +1,36 @@
+@use "base";
+
+// .workspace-container.empty {
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+//     width: 100%;
+// }
+
+.empty-state {
+    text-align: center;
+    
+    img {
+        width: 130px;
+        height: auto;
+    }
+
+    h2 {
+        @include base.title-h2;
+    }
+
+    p {
+        margin-top: base.$space-between;
+        color: rgb(119, 119, 119)
+    }
+
+    button {
+        @include base.button-add(rgb(46, 46, 46));
+    }
+
+    button:hover {
+        background-color: rgb(0, 0, 0);
+        color: rgb(255, 255, 255);
+        box-shadow: 10px 10px rgba(29, 29, 29, 0.6);
+    }
+}

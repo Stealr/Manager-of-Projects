@@ -1,0 +1,46 @@
+@use "sass:math";
+@use 'base';
+
+.dashboard {
+    display: flex;
+    margin-top: base.$top-space;
+    height: calc(100vh - base.$top-space);
+}
+
+.workspace-container {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    margin-top: 130px;
+}
+
+.projects-list {
+    flex-shrink: 0;
+    background-color: black;
+    color: white;
+    padding: 80px 30px;
+    width: 400px;
+    height: 100%;
+    border-radius: 0 20px 0 0;
+    box-sizing: border-box;
+
+    h2 {
+        @include base.title-h2;
+    }
+
+    button {
+        @include base.button-add(rgb(70, 70, 70))
+    }
+
+    button:hover {
+        background-color: rgb(255, 255, 255);
+        color: rgb(17, 17, 17);
+        box-shadow: 10px 10px rgba(255, 255, 255, 0.6);
+    }
+}
+
+.projects-list__projects-skroll {
+    margin-top: base.$space-between;
+    max-height: 500px;
+    overflow: auto;
+}

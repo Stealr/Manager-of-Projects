@@ -1,0 +1,32 @@
+@use 'base';
+
+.create-new-project {
+    width: 100%;
+    margin: 0 50px;
+
+    #btn-cancel {
+        @include base.button-add(rgb(255, 255, 255), black, 0);
+        margin-right: 10px;
+    }
+
+    #btn-cancel:hover {
+        background-color: rgb(255, 221, 221);
+    }
+
+    #btn-save {
+        @include base.button-add(rgb(2, 2, 2), white, 0);
+    }
+
+    #btn-save:hover {
+        background-color: rgb(87, 87, 87);
+    }
+
+    p {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+.create-new-project__control-btns {
+    align-items: end;
+}

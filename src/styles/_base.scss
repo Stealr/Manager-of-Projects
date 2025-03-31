@@ -1,0 +1,19 @@
+$top-space: 60px;
+$space-between: 40px;
+
+@mixin title-h2() {
+    font-size: 26px;
+    font-weight: 700;
+}
+
+@mixin button-add($backg, $color: rgb(143, 143, 143), $mr-top: $space-between) {
+    font-size: 22px;
+    padding: 10px 15px;
+    border-radius: 6px;
+    border: none;
+    background-color: $backg;
+    color: $color;
+    margin-top: $mr-top;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
