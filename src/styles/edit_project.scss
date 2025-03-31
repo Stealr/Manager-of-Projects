@@ -1,0 +1,95 @@
+@use 'base';
+
+$bottom-space: 25px;
+
+.edit-project {
+    width: 100%;
+    margin: 0 400px 0 50px;
+
+    .edit-project__title-delete {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: $bottom-space;
+    }
+
+    .edit-project__title-delete button {
+        background-color: transparent;
+        border: none;
+        font-size: 1.5rem;
+        cursor: pointer;
+        border-radius: 5px;
+        padding: 7px;
+
+        transition: background-color 0.3s ease;
+    }
+
+    .edit-project__title-delete button:hover {
+        background-color: rgb(255, 221, 221);
+    }
+
+    h1 {
+        font-size: 2.5rem;
+        font-weight: 900;
+    }
+
+    .edit-project__date {
+        font-size: 1.5rem;
+        color: rgb(128, 128, 128);
+        margin-bottom: $bottom-space;
+    }
+
+    .edit-project__desc {
+        font-size: 1.5rem;
+        margin-bottom: $bottom-space;
+    }
+
+    hr {
+        height: 4px;
+        background-color: #d3d3d3;
+        border: none;
+    }
+}
+
+
+
+.edit-project__project-tasks {
+    margin-top: $bottom-space;
+
+    h2 {
+        font-size: 2.2rem;
+        font-weight: 700;
+        margin-bottom: $bottom-space;
+    }
+
+    .edit-project__add-task {
+        
+    }
+
+    .edit-project__add-task input {
+        border: none;
+        height: 50px;
+        width: 500px;
+        border-radius: 6px;
+        outline: none;
+        margin-right: 10px;
+
+        font-size: 1.5rem;
+        padding-left: 7px;
+        background-color: rgb(233, 233, 233);
+    }
+
+    .edit-project__add-task button {
+        cursor: pointer;
+        height: 50px;
+        border: none;
+        font-size: 1.5rem;
+        border-radius: 6px;
+        padding: 0px 10px;
+        background-color: transparent;
+    }
+
+    .edit-project__add-task button:hover {
+        background-color: rgb(243, 243, 243);
+    }
+}

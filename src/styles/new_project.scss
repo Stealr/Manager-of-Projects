@@ -2,7 +2,7 @@
 
 .create-new-project {
     width: 100%;
-    margin: 0 50px;
+    margin: 0 400px 0 50px;
 
     #btn-cancel {
         @include base.button-add(rgb(255, 255, 255), black, 0);
@@ -10,7 +10,7 @@
     }
 
     #btn-cancel:hover {
-        background-color: rgb(255, 221, 221);
+        background-color: rgb(212, 212, 212);
     }
 
     #btn-save {
@@ -24,9 +24,34 @@
     p {
         display: flex;
         flex-direction: column;
+        margin-bottom: 20px;
     }
+
+    label {
+        font-weight: 700;
+        color: rgb(63, 63, 63);
+        margin-bottom: 5px;
+    }
+
+    input {
+        height: 45px;
+        font-size: 22px;
+        background-color: #f0f0f0;
+        border: none;
+        outline: none;
+        border-radius: 6px;
+        padding: 0 10px;
+        border-bottom: 2px solid #8a8a8a;
+        font-family: Arial, Helvetica, sans-serif;;
+    }
+
+    input.selected {
+        border-bottom: 2px solid #000000;
+    }
+
 }
 
 .create-new-project__control-btns {
-    align-items: end;
+    display: flex;
+    justify-content: flex-end;
 }

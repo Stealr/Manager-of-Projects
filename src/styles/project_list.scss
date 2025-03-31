@@ -1,0 +1,51 @@
+@use "sass:math";
+@use 'base';
+
+.projects-list {
+    flex-shrink: 0;
+    background-color: black;
+    color: white;
+    padding: 80px 30px;
+    width: 400px;
+    height: 100%;
+    border-radius: 0 20px 0 0;
+    box-sizing: border-box;
+
+    h2 {
+        @include base.title-h2;
+    }
+
+    .projects-list__add-btn {
+        @include base.button-add(rgb(70, 70, 70))
+    }
+
+    .projects-list__add-btn:hover {
+        background-color: rgb(255, 255, 255);
+        color: rgb(17, 17, 17);
+        box-shadow: 10px 10px rgba(255, 255, 255, 0.6);
+    }
+
+    .projects-list__project-btn {
+        text-align: left;
+        background-color: transparent;
+        border: none;
+        color: white;
+        font-size: 1.4rem;
+        cursor: pointer;
+        padding: 15px;
+        border-radius: 5px;
+        margin-bottom: 5px;
+
+        width: 100%;
+    }
+
+    .projects-list__project-btn:hover {
+        background-color: rgb(37, 37, 37);
+    }
+}
+
+.projects-list__projects-skroll {
+    margin-top: base.$space-between;
+    max-height: 500px;
+    overflow: auto;
+}
