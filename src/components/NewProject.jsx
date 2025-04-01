@@ -1,5 +1,5 @@
-import { useRef, useId } from 'react';
-
+import { useRef, useId, useState } from 'react';
+import Modal from "/src/components/Modal";
 import '/src/styles/new_project.scss';
 
 export default function NewProject({ changeSelected, setListProjects }) {
@@ -7,7 +7,9 @@ export default function NewProject({ changeSelected, setListProjects }) {
     const descRef = useRef(null);
     const dateRef = useRef(null);
 
+    const dialog = useRef();
     const projectId = useId();
+    const [newProject, setNewProject] = useState(null);
 
     function handleSave(event) {
         event.preventDefault();
@@ -16,18 +18,13 @@ export default function NewProject({ changeSelected, setListProjects }) {
         const desc = descRef.current.value;
         const date = dateRef.current.value;
 
-        setListProjects((prev) => [...prev, { id: projectId, title, desc, date }]);
-        changeSelected({
-            mode: "empty",
-            currentProject: null
-        });
+        const project = { id: projectId, title, desc, date, tasks: [] };
+        setListProjects((prev) => [...prev, project]);
+        setNewProject(project);
+        
+        // Открываем модальное окно
+        dialog.current.showModal();
     }
-    // examplePr: {
-    //     id: 1231,
-    //     title: "testTitle",
-    //     desc: "description",
-    //     date: "10.04.2025",
-    //   }
 
     function handleCancel(event) {
         event.preventDefault();
@@ -37,8 +34,30 @@ export default function NewProject({ changeSelected, setListProjects }) {
         });
     }
 
+    function handleCloseModal() {
+        dialog.current.close();
+        changeSelected({
+            mode: "empty",
+            currentProject: null
+        });
+    }
+
+    function handleEditProject() {
+        dialog.current.close();
+        changeSelected({
+            mode: "edit",
+            currentProject: newProject
+        });
+    }
+
     return (
         <div className="create-new-project">
+            <Modal 
+                ref={dialog} 
+                title={newProject?.title || ''} 
+                onClose={handleCloseModal}
+                onEdit={handleEditProject}
+            />
             <form onSubmit={handleSave}>
                 <div className="create-new-project__control-btns">
                     <button id="btn-cancel" onClick={handleCancel}>Cancel</button>
@@ -46,7 +65,7 @@ export default function NewProject({ changeSelected, setListProjects }) {
                 </div>
                 <p>
                     <label>TITLE</label>
-                    <input ref={titleRef} />
+                    <input ref={titleRef} required />
                 </p>
                 <p>
                     <label>DESCRIPTION</label>

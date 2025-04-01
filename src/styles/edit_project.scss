@@ -1,6 +1,18 @@
 @use 'base';
 
+@mixin delete-btn() {
+    background-color: transparent;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    border-radius: 5px;
+    padding: 7px;
+
+    transition: background-color 0.3s ease;
+}
+
 $bottom-space: 25px;
+$hovering-delete-btn: rgb(255, 221, 221);
 
 .edit-project {
     width: 100%;
@@ -14,18 +26,11 @@ $bottom-space: 25px;
     }
 
     .edit-project__title-delete button {
-        background-color: transparent;
-        border: none;
-        font-size: 1.5rem;
-        cursor: pointer;
-        border-radius: 5px;
-        padding: 7px;
-
-        transition: background-color 0.3s ease;
+        @include delete-btn()
     }
 
     .edit-project__title-delete button:hover {
-        background-color: rgb(255, 221, 221);
+        background-color: $hovering-delete-btn;
     }
 
     h1 {
@@ -51,8 +56,6 @@ $bottom-space: 25px;
     }
 }
 
-
-
 .edit-project__project-tasks {
     margin-top: $bottom-space;
 
@@ -62,8 +65,39 @@ $bottom-space: 25px;
         margin-bottom: $bottom-space;
     }
 
-    .edit-project__add-task {
-        
+    .edit-project__list-tasks {
+        margin-top: $bottom-space;
+        background-color: rgb(233, 233, 233);
+        padding: 40px;
+        border-radius: 10px;
+    }
+
+    .list-tasks__task {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 15px;
+        border-radius: 7px;
+
+        button {
+            @include delete-btn()
+        }
+
+        button:hover {
+            background-color: $hovering-delete-btn;
+        }
+
+        .list-tasks__checkbox {
+            font-size: 1.5rem;
+        }
+
+        label {
+            margin-left: 10px
+        }
+    }
+
+    .list-tasks__task:hover {
+        background-color: rgb(228, 228, 228);
     }
 
     .edit-project__add-task input {
